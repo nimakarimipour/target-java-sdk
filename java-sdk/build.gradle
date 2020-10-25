@@ -1,8 +1,26 @@
+buildscript {
+    repositories {
+        mavenLocal()
+    }
+    dependencies {
+        classpath 'edu.ucr.cs.riple:NullAwayAutoFixer:1.0-SNAPSHOT'
+    }
+}
+
 plugins {
     id 'maven-publish'
     id 'signing'
     id 'maven'
+    id 'java'
+    id("net.ltgt.errorprone") version "0.6"
 }
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+apply plugin: 'edu.ucr.cs.riple.plugin'
 
 javadoc {
     source = sourceSets.main.allJava
@@ -86,6 +104,26 @@ dependencies {
     testImplementation "org.slf4j:slf4j-simple:2.0.0-alpha0"
     testImplementation "org.junit.jupiter:junit-jupiter-engine:5.5.2"
     testImplementation "org.mockito:mockito-junit-jupiter:3.0.0"
+
+    annotationProcessor "edu.ucr.cs.riple:nullaway:0.7.12-SNAPSHOT"
+
+    compileOnly "com.google.code.findbugs:jsr305:3.0.2"
+    errorprone "com.google.errorprone:error_prone_core:2.3.2"
+    errorproneJavac "com.google.errorprone:javac:9+181-r4173-1"
+}
+
+
+import net.ltgt.gradle.errorprone.CheckSeverity;
+tasks.withType(JavaCompile) {
+    // remove the if condition if you want to run NullAway on test code
+    if (!name.toLowerCase().contains("test")) {
+        options.errorprone {
+            check("NullAway", CheckSeverity.ERROR)
+            option("NullAway:AnnotatedPackages", "com.adobe.target")
+//            option("NullAway:AutoFix", "true")
+        }
+        options.compilerArgs << "-Xmaxerrs" << "100000"
+    }
 }
 
 test {
