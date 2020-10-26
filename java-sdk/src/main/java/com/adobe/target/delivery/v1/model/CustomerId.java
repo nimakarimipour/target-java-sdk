@@ -13,25 +13,23 @@
  */
 package com.adobe.target.delivery.v1.model;
 
+import javax.annotation.Nullable;
+
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.Objects;
 
-
-/**
- * CustomerId
- */
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class CustomerId {
-    @JsonProperty("id")
+    @JsonProperty("id")@Nullable
     private String id;
 
-    @JsonProperty("integrationCode")
+    @JsonProperty("integrationCode")@Nullable
     private String integrationCode;
 
-    @JsonProperty("authenticatedState")
+    @JsonProperty("authenticatedState")@Nullable
     private AuthenticatedState authenticatedState = null;
 
     public CustomerId id(String id) {
@@ -45,6 +43,7 @@ public class CustomerId {
      * @return id
      **/
 
+    @Nullable
     public String getId() {
         return id;
     }
@@ -64,6 +63,7 @@ public class CustomerId {
      * @return integrationCode
      **/
 
+    @Nullable
     public String getIntegrationCode() {
         return integrationCode;
     }
@@ -83,6 +83,7 @@ public class CustomerId {
      * @return authenticatedState
      **/
 
+    @Nullable
     public AuthenticatedState getAuthenticatedState() {
         return authenticatedState;
     }
@@ -127,7 +128,7 @@ public class CustomerId {
      * Convert the given object to string with each line indented by 4 spaces
      * (except the first line).
      */
-    private String toIndentedString(Object o) {
+    private String toIndentedString(@Nullable Object o) {
         if (o == null) {
             return "null";
         }

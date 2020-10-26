@@ -13,22 +13,20 @@
  */
 package com.adobe.target.delivery.v1.model;
 
+import javax.annotation.Nullable;
+
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.Objects;
 
-
-/**
- * Integrations with Audience Manager and Analytics
- */
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class ExperienceCloud {
-    @JsonProperty("audienceManager")
+    @JsonProperty("audienceManager")@Nullable
     private AudienceManager audienceManager = null;
 
-    @JsonProperty("analytics")
+    @JsonProperty("analytics")@Nullable
     private AnalyticsRequest analytics = null;
 
     public ExperienceCloud audienceManager(AudienceManager audienceManager) {
@@ -42,6 +40,7 @@ public class ExperienceCloud {
      * @return audienceManager
      **/
 
+    @Nullable
     public AudienceManager getAudienceManager() {
         return audienceManager;
     }
@@ -61,6 +60,7 @@ public class ExperienceCloud {
      * @return analytics
      **/
 
+    @Nullable
     public AnalyticsRequest getAnalytics() {
         return analytics;
     }
@@ -103,7 +103,7 @@ public class ExperienceCloud {
      * Convert the given object to string with each line indented by 4 spaces
      * (except the first line).
      */
-    private String toIndentedString(Object o) {
+    private String toIndentedString(@Nullable Object o) {
         if (o == null) {
             return "null";
         }

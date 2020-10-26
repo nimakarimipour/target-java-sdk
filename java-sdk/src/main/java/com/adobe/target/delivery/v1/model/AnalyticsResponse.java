@@ -13,19 +13,17 @@
  */
 package com.adobe.target.delivery.v1.model;
 
+import javax.annotation.Nullable;
+
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.Objects;
 
-
-/**
- * AnalyticsResponse
- */
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class AnalyticsResponse {
-    @JsonProperty("payload")
+    @JsonProperty("payload")@Nullable
     private AnalyticsPayload payload = null;
 
     public AnalyticsResponse payload(AnalyticsPayload payload) {
@@ -39,6 +37,7 @@ public class AnalyticsResponse {
      * @return payload
      **/
 
+    @Nullable
     public AnalyticsPayload getPayload() {
         return payload;
     }
@@ -79,7 +78,7 @@ public class AnalyticsResponse {
      * Convert the given object to string with each line indented by 4 spaces
      * (except the first line).
      */
-    private String toIndentedString(Object o) {
+    private String toIndentedString(@Nullable Object o) {
         if (o == null) {
             return "null";
         }

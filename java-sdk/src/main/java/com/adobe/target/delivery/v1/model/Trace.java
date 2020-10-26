@@ -13,6 +13,8 @@
  */
 package com.adobe.target.delivery.v1.model;
 
+import javax.annotation.Nullable;
+
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -21,12 +23,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/**
- * Enables the trace for delivery API. At present it is not be possible to set the metrics and packages for the trace.
- */
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Trace {
-    @JsonProperty("authorizationToken")
+    @JsonProperty("authorizationToken")@Nullable
     private String authorizationToken;
 
     @JsonProperty("usage")
@@ -43,6 +42,7 @@ public class Trace {
      * @return authorizationToken
      **/
 
+    @Nullable
     public String getAuthorizationToken() {
         return authorizationToken;
     }
@@ -112,7 +112,7 @@ public class Trace {
      * Convert the given object to string with each line indented by 4 spaces
      * (except the first line).
      */
-    private String toIndentedString(Object o) {
+    private String toIndentedString(@Nullable Object o) {
         if (o == null) {
             return "null";
         }

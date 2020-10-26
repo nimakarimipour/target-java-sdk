@@ -13,46 +13,44 @@
  */
 package com.adobe.target.delivery.v1.model;
 
+import javax.annotation.Nullable;
+
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.Objects;
 
-
-/**
- * Specifies the context for the request, IE if it a web request then is should include user agent etc.
- */
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Context {
-    @JsonProperty("channel")
+    @JsonProperty("channel")@Nullable
     private ChannelType channel = null;
 
-    @JsonProperty("mobilePlatform")
+    @JsonProperty("mobilePlatform")@Nullable
     private MobilePlatform mobilePlatform = null;
 
-    @JsonProperty("application")
+    @JsonProperty("application")@Nullable
     private Application application = null;
 
-    @JsonProperty("screen")
+    @JsonProperty("screen")@Nullable
     private Screen screen = null;
 
-    @JsonProperty("window")
+    @JsonProperty("window")@Nullable
     private Window window = null;
 
-    @JsonProperty("browser")
+    @JsonProperty("browser")@Nullable
     private Browser browser = null;
 
-    @JsonProperty("address")
+    @JsonProperty("address")@Nullable
     private Address address = null;
 
-    @JsonProperty("geo")
+    @JsonProperty("geo")@Nullable
     private Geo geo = null;
 
-    @JsonProperty("timeOffsetInMinutes")
+    @JsonProperty("timeOffsetInMinutes")@Nullable
     private Double timeOffsetInMinutes;
 
-    @JsonProperty("userAgent")
+    @JsonProperty("userAgent")@Nullable
     private String userAgent;
 
     @JsonProperty("beacon")
@@ -69,6 +67,7 @@ public class Context {
      * @return channel
      **/
 
+    @Nullable
     public ChannelType getChannel() {
         return channel;
     }
@@ -88,6 +87,7 @@ public class Context {
      * @return mobilePlatform
      **/
 
+    @Nullable
     public MobilePlatform getMobilePlatform() {
         return mobilePlatform;
     }
@@ -107,6 +107,7 @@ public class Context {
      * @return application
      **/
 
+    @Nullable
     public Application getApplication() {
         return application;
     }
@@ -126,6 +127,7 @@ public class Context {
      * @return screen
      **/
 
+    @Nullable
     public Screen getScreen() {
         return screen;
     }
@@ -145,6 +147,7 @@ public class Context {
      * @return window
      **/
 
+    @Nullable
     public Window getWindow() {
         return window;
     }
@@ -164,6 +167,7 @@ public class Context {
      * @return browser
      **/
 
+    @Nullable
     public Browser getBrowser() {
         return browser;
     }
@@ -183,6 +187,7 @@ public class Context {
      * @return address
      **/
 
+    @Nullable
     public Address getAddress() {
         return address;
     }
@@ -202,6 +207,7 @@ public class Context {
      * @return geo
      **/
 
+    @Nullable
     public Geo getGeo() {
         return geo;
     }
@@ -221,6 +227,7 @@ public class Context {
      * @return timeOffsetInMinutes
      **/
 
+    @Nullable
     public Double getTimeOffsetInMinutes() {
         return timeOffsetInMinutes;
     }
@@ -240,6 +247,7 @@ public class Context {
      * @return userAgent
      **/
 
+    @Nullable
     public String getUserAgent() {
         return userAgent;
     }
@@ -321,7 +329,7 @@ public class Context {
      * Convert the given object to string with each line indented by 4 spaces
      * (except the first line).
      */
-    private String toIndentedString(Object o) {
+    private String toIndentedString(@Nullable Object o) {
         if (o == null) {
             return "null";
         }

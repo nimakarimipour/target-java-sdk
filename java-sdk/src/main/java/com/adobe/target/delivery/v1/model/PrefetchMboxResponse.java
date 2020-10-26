@@ -23,18 +23,17 @@
  */
 package com.adobe.target.delivery.v1.model;
 
+import javax.annotation.Nullable;
+
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.Objects;
 
-/**
- * PrefetchMboxResponse
- */
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class PrefetchMboxResponse extends MboxResponse {
-    @JsonProperty("state")
+    @JsonProperty("state")@Nullable
     private String state;
 
     public PrefetchMboxResponse state(String state) {
@@ -48,6 +47,7 @@ public class PrefetchMboxResponse extends MboxResponse {
      * @return state
      **/
 
+    @Nullable
     public String getState() {
         return state;
     }
@@ -90,7 +90,7 @@ public class PrefetchMboxResponse extends MboxResponse {
      * Convert the given object to string with each line indented by 4 spaces
      * (except the first line).
      */
-    private String toIndentedString(Object o) {
+    private String toIndentedString(@Nullable Object o) {
         if (o == null) {
             return "null";
         }

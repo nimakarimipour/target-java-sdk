@@ -13,6 +13,8 @@
  */
 package com.adobe.target.delivery.v1.model;
 
+import javax.annotation.Nullable;
+
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -21,18 +23,15 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/**
- * The content from the activitiesc is returned via the option objects.
- */
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Option {
-    @JsonProperty("type")
+    @JsonProperty("type")@Nullable
     private OptionType type = null;
 
-    @JsonProperty("content")
+    @JsonProperty("content")@Nullable
     private Object content = null;
 
-    @JsonProperty("eventToken")
+    @JsonProperty("eventToken")@Nullable
     private String eventToken;
 
     @JsonProperty("responseTokens")
@@ -49,6 +48,7 @@ public class Option {
      * @return type
      **/
 
+    @Nullable
     public OptionType getType() {
         return type;
     }
@@ -70,6 +70,7 @@ public class Option {
      * @return content
      **/
 
+    @Nullable
     public Object getContent() {
         return content;
     }
@@ -90,6 +91,7 @@ public class Option {
      * @return eventToken
      **/
 
+    @Nullable
     public String getEventToken() {
         return eventToken;
     }
@@ -166,7 +168,7 @@ public class Option {
      * Convert the given object to string with each line indented by 4 spaces
      * (except the first line).
      */
-    private String toIndentedString(Object o) {
+    private String toIndentedString(@Nullable Object o) {
         if (o == null) {
             return "null";
         }

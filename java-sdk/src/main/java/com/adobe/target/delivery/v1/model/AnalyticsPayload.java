@@ -13,22 +13,20 @@
  */
 package com.adobe.target.delivery.v1.model;
 
+import javax.annotation.Nullable;
+
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.Objects;
 
-
-/**
- * Analytics payload for client side integration that should be sent to Analytics after content has been applied.
- */
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class AnalyticsPayload {
-    @JsonProperty("pe")
+    @JsonProperty("pe")@Nullable
     private String pe;
 
-    @JsonProperty("tnta")
+    @JsonProperty("tnta")@Nullable
     private String tnta;
 
     public AnalyticsPayload pe(String pe) {
@@ -42,6 +40,7 @@ public class AnalyticsPayload {
      * @return pe
      **/
 
+    @Nullable
     public String getPe() {
         return pe;
     }
@@ -61,6 +60,7 @@ public class AnalyticsPayload {
      * @return tnta
      **/
 
+    @Nullable
     public String getTnta() {
         return tnta;
     }
@@ -103,7 +103,7 @@ public class AnalyticsPayload {
      * Convert the given object to string with each line indented by 4 spaces
      * (except the first line).
      */
-    private String toIndentedString(Object o) {
+    private String toIndentedString(@Nullable Object o) {
         if (o == null) {
             return "null";
         }

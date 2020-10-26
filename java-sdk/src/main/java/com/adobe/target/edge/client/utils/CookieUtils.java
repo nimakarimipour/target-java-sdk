@@ -11,6 +11,8 @@
  */
 package com.adobe.target.edge.client.utils;
 
+import javax.annotation.Nullable;
+
 import com.adobe.target.edge.client.model.TargetCookie;
 import com.adobe.target.edge.client.service.VisitorProvider;
 
@@ -31,8 +33,11 @@ public class CookieUtils {
     private static final int SESSION_ID_COOKIE_MAX_AGE = 1860;
     private static final int DEVICE_ID_COOKIE_MAX_AGE = 63244800;
     private static final int CLUSTER_LOCATION_HINT_MAX_AGE = 1860;
+
+    @Nullable
     private static Set<String> TARGET_COOKIE_NAMES;
 
+    @Nullable
     public static String getDeviceId(final Map<String, TargetCookie> parseCookies) {
         String returnValue = null;
         final TargetCookie cookie = parseCookies.get(DEVICE_ID_COOKIE_NAME);
@@ -55,7 +60,7 @@ public class CookieUtils {
         return sessionId;
     }
 
-    public static Map<String, String> parseTargetCookies(String targetCookie) {
+    public static Map<String, String> parseTargetCookies(@Nullable String targetCookie) {
 
         if (isEmpty(targetCookie)) {
             return Collections.EMPTY_MAP;
@@ -80,6 +85,7 @@ public class CookieUtils {
         return internalTargetCookies;
     }
 
+    @Nullable
     private static TargetCookie deserializeInternalCookie(String cookie) {
         final String[] cookieTokens = cookie.split(Pattern.quote(INTERNAL_COOKIE_SERIALIZATION_SEPARATOR));
 

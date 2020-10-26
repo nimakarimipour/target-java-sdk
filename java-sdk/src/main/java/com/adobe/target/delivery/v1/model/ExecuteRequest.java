@@ -13,6 +13,8 @@
  */
 package com.adobe.target.delivery.v1.model;
 
+import javax.annotation.Nullable;
+
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -21,13 +23,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * The execute part of the request will be evaluated on the server side immediately. Visits/visitor/impressions will
- * be logged for the matching activities.
- */
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class ExecuteRequest {
-    @JsonProperty("pageLoad")
+    @JsonProperty("pageLoad")@Nullable
     private RequestDetails pageLoad = null;
 
     @JsonProperty("mboxes")
@@ -44,6 +42,7 @@ public class ExecuteRequest {
      * @return pageLoad
      **/
 
+    @Nullable
     public RequestDetails getPageLoad() {
         return pageLoad;
     }
@@ -113,7 +112,7 @@ public class ExecuteRequest {
      * Convert the given object to string with each line indented by 4 spaces
      * (except the first line).
      */
-    private String toIndentedString(Object o) {
+    private String toIndentedString(@Nullable Object o) {
         if (o == null) {
             return "null";
         }

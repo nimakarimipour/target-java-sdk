@@ -13,22 +13,20 @@
  */
 package com.adobe.target.delivery.v1.model;
 
+import javax.annotation.Nullable;
+
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.*;
 
-/**
- * This object will contain all the options for the selectors set for the current view, from the active activities,
- * in case the context and targeting conditions from the request have been matched.
- */
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class View {
-    @JsonProperty("name")
+    @JsonProperty("name")@Nullable
     private String name;
 
-    @JsonProperty("key")
+    @JsonProperty("key")@Nullable
     private String key;
 
     @JsonProperty("options")
@@ -37,10 +35,10 @@ public class View {
     @JsonProperty("metrics")
     private List<Metric> metrics = new ArrayList<>();
 
-    @JsonProperty("analytics")
+    @JsonProperty("analytics")@Nullable
     private AnalyticsResponse analytics = null;
 
-    @JsonProperty("state")
+    @JsonProperty("state")@Nullable
     private String state;
 
     @JsonProperty("trace")
@@ -58,6 +56,7 @@ public class View {
      * @return name
      **/
 
+    @Nullable
     public String getName() {
         return name;
     }
@@ -78,6 +77,7 @@ public class View {
      * @return key
      **/
 
+    @Nullable
     public String getKey() {
         return key;
     }
@@ -151,6 +151,7 @@ public class View {
      * @return analytics
      **/
 
+    @Nullable
     public AnalyticsResponse getAnalytics() {
         return analytics;
     }
@@ -170,6 +171,7 @@ public class View {
      * @return state
      **/
 
+    @Nullable
     public String getState() {
         return state;
     }
@@ -250,7 +252,7 @@ public class View {
      * Convert the given object to string with each line indented by 4 spaces
      * (except the first line).
      */
-    private String toIndentedString(Object o) {
+    private String toIndentedString(@Nullable Object o) {
         if (o == null) {
             return "null";
         }

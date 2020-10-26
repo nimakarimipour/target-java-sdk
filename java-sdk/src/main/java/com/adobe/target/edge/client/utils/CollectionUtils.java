@@ -11,6 +11,8 @@
  */
 package com.adobe.target.edge.client.utils;
 
+import javax.annotation.Nullable;
+
 import java.util.Collection;
 import java.util.Map;
 
@@ -24,7 +26,7 @@ public class CollectionUtils {
         return !isEmpty(collection);
     }
 
-    public static boolean isEmpty(Map<?, ?> map) {
+    public static boolean isEmpty(@Nullable Map<?, ?> map) {
         return map == null || map.isEmpty();
     }
 

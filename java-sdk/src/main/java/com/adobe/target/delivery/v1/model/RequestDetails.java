@@ -13,6 +13,8 @@
  */
 package com.adobe.target.delivery.v1.model;
 
+import javax.annotation.Nullable;
+
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -21,12 +23,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/**
- * Object common for prefetch, execute and notifications in order to specify the request details.
- */
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class RequestDetails {
-    @JsonProperty("address")
+    @JsonProperty("address")@Nullable
     private Address address = null;
 
     @JsonProperty("parameters")
@@ -35,10 +34,10 @@ public class RequestDetails {
     @JsonProperty("profileParameters")
     private Map<String, String> profileParameters = new HashMap<>();
 
-    @JsonProperty("order")
+    @JsonProperty("order")@Nullable
     private Order order = null;
 
-    @JsonProperty("product")
+    @JsonProperty("product")@Nullable
     private Product product = null;
 
     public RequestDetails address(Address address) {
@@ -52,6 +51,7 @@ public class RequestDetails {
      * @return address
      **/
 
+    @Nullable
     public Address getAddress() {
         return address;
     }
@@ -133,6 +133,7 @@ public class RequestDetails {
      * @return order
      **/
 
+    @Nullable
     public Order getOrder() {
         return order;
     }
@@ -152,6 +153,7 @@ public class RequestDetails {
      * @return product
      **/
 
+    @Nullable
     public Product getProduct() {
         return product;
     }
@@ -200,7 +202,7 @@ public class RequestDetails {
      * Convert the given object to string with each line indented by 4 spaces
      * (except the first line).
      */
-    private String toIndentedString(Object o) {
+    private String toIndentedString(@Nullable Object o) {
         if (o == null) {
             return "null";
         }

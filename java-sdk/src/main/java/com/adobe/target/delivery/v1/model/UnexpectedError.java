@@ -13,22 +13,20 @@
  */
 package com.adobe.target.delivery.v1.model;
 
+import javax.annotation.Nullable;
+
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.Objects;
 
-
-/**
- * UnexpectedError
- */
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class UnexpectedError {
-    @JsonProperty("status")
+    @JsonProperty("status")@Nullable
     private Integer status;
 
-    @JsonProperty("message")
+    @JsonProperty("message")@Nullable
     private String message;
 
     public UnexpectedError status(Integer status) {
@@ -42,6 +40,7 @@ public class UnexpectedError {
      * @return status
      **/
 
+    @Nullable
     public Integer getStatus() {
         return status;
     }
@@ -61,6 +60,7 @@ public class UnexpectedError {
      * @return message
      **/
 
+    @Nullable
     public String getMessage() {
         return message;
     }
@@ -103,7 +103,7 @@ public class UnexpectedError {
      * Convert the given object to string with each line indented by 4 spaces
      * (except the first line).
      */
-    private String toIndentedString(Object o) {
+    private String toIndentedString(@Nullable Object o) {
         if (o == null) {
             return "null";
         }

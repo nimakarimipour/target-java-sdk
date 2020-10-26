@@ -13,22 +13,20 @@
  */
 package com.adobe.target.delivery.v1.model;
 
+import javax.annotation.Nullable;
+
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.Objects;
 
-
-/**
- * NotificationMbox
- */
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class NotificationMbox {
-    @JsonProperty("name")
+    @JsonProperty("name")@Nullable
     private String name;
 
-    @JsonProperty("state")
+    @JsonProperty("state")@Nullable
     private String state;
 
     public NotificationMbox name(String name) {
@@ -44,6 +42,7 @@ public class NotificationMbox {
      * @return name
      **/
 
+    @Nullable
     public String getName() {
         return name;
     }
@@ -63,6 +62,7 @@ public class NotificationMbox {
      * @return state
      **/
 
+    @Nullable
     public String getState() {
         return state;
     }
@@ -105,7 +105,7 @@ public class NotificationMbox {
      * Convert the given object to string with each line indented by 4 spaces
      * (except the first line).
      */
-    private String toIndentedString(Object o) {
+    private String toIndentedString(@Nullable Object o) {
         if (o == null) {
             return "null";
         }

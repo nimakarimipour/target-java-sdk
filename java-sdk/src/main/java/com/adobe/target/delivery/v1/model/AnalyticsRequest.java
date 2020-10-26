@@ -13,28 +13,26 @@
  */
 package com.adobe.target.delivery.v1.model;
 
+import javax.annotation.Nullable;
+
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.Objects;
 
-
-/**
- * Integration with Adobe Analytics (A4T).
- */
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class AnalyticsRequest {
-    @JsonProperty("supplementalDataId")
+    @JsonProperty("supplementalDataId")@Nullable
     private String supplementalDataId;
 
-    @JsonProperty("logging")
+    @JsonProperty("logging")@Nullable
     private LoggingType logging = null;
 
-    @JsonProperty("trackingServer")
+    @JsonProperty("trackingServer")@Nullable
     private String trackingServer;
 
-    @JsonProperty("trackingServerSecure")
+    @JsonProperty("trackingServerSecure")@Nullable
     private String trackingServerSecure;
 
     public AnalyticsRequest supplementalDataId(String supplementalDataId) {
@@ -49,6 +47,7 @@ public class AnalyticsRequest {
      * @return supplementalDataId
      **/
 
+    @Nullable
     public String getSupplementalDataId() {
         return supplementalDataId;
     }
@@ -68,6 +67,7 @@ public class AnalyticsRequest {
      * @return logging
      **/
 
+    @Nullable
     public LoggingType getLogging() {
         return logging;
     }
@@ -76,7 +76,7 @@ public class AnalyticsRequest {
         this.logging = logging;
     }
 
-    public AnalyticsRequest trackingServer(String trackingServer) {
+    public AnalyticsRequest trackingServer(@Nullable String trackingServer) {
         this.trackingServer = trackingServer;
         return this;
     }
@@ -87,6 +87,7 @@ public class AnalyticsRequest {
      * @return trackingServer
      **/
 
+    @Nullable
     public String getTrackingServer() {
         return trackingServer;
     }
@@ -95,7 +96,7 @@ public class AnalyticsRequest {
         this.trackingServer = trackingServer;
     }
 
-    public AnalyticsRequest trackingServerSecure(String trackingServerSecure) {
+    public AnalyticsRequest trackingServerSecure(@Nullable String trackingServerSecure) {
         this.trackingServerSecure = trackingServerSecure;
         return this;
     }
@@ -106,6 +107,7 @@ public class AnalyticsRequest {
      * @return trackingServerSecure
      **/
 
+    @Nullable
     public String getTrackingServerSecure() {
         return trackingServerSecure;
     }
@@ -152,7 +154,7 @@ public class AnalyticsRequest {
      * Convert the given object to string with each line indented by 4 spaces
      * (except the first line).
      */
-    private String toIndentedString(Object o) {
+    private String toIndentedString(@Nullable Object o) {
         if (o == null) {
             return "null";
         }

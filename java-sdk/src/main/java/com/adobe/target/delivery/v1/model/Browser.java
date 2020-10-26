@@ -13,22 +13,20 @@
  */
 package com.adobe.target.delivery.v1.model;
 
+import javax.annotation.Nullable;
+
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.Objects;
 
-
-/**
- * Browser object may be specified only when the Channel is Web.
- */
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Browser {
-    @JsonProperty("host")
+    @JsonProperty("host")@Nullable
     private String host;
 
-    @JsonProperty("webGLRenderer")
+    @JsonProperty("webGLRenderer")@Nullable
     private String webGLRenderer;
 
     public Browser host(String host) {
@@ -42,6 +40,7 @@ public class Browser {
      * @return host
      **/
 
+    @Nullable
     public String getHost() {
         return host;
     }
@@ -61,6 +60,7 @@ public class Browser {
      * @return webGLRenderer
      **/
 
+    @Nullable
     public String getWebGLRenderer() {
         return webGLRenderer;
     }
@@ -103,7 +103,7 @@ public class Browser {
      * Convert the given object to string with each line indented by 4 spaces
      * (except the first line).
      */
-    private String toIndentedString(Object o) {
+    private String toIndentedString(@Nullable Object o) {
         if (o == null) {
             return "null";
         }

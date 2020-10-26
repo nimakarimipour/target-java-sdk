@@ -11,6 +11,8 @@
  */
 package com.adobe.target.edge.client.model;
 
+import javax.annotation.Nullable;
+
 import com.adobe.experiencecloud.ecid.visitor.AmcvEntry;
 import com.adobe.experiencecloud.ecid.visitor.CustomerState;
 import com.adobe.experiencecloud.ecid.visitor.Visitor;
@@ -29,16 +31,37 @@ import static com.adobe.target.edge.client.utils.VisitorConstants.*;
 
 public final class TargetDeliveryRequestBuilder {
 
+    @Nullable
     private String sessionId;
+
+    @Nullable
     private String locationHint;
+
+    @Nullable
     private Visitor visitor;
+
+    @Nullable
     private String thirdPartyId;
+
+    @Nullable
     private String tntId;
+
+    @Nullable
     private String marketingCloudVisitorId;
+
+    @Nullable
     private ExperienceCloud experienceCloud;
+
+    @Nullable
     private Map<String, CustomerState> visitorCustomerIds;
+
+    @Nullable
     private List<CustomerId> targetCustomerIds;
+
+    @Nullable
     private String trackingServer;
+
+    @Nullable
     private String trackingServerSecure;
     private Map<String, String> requestCookies = new HashMap<>();
     private DeliveryRequest request;
@@ -222,7 +245,7 @@ public final class TargetDeliveryRequestBuilder {
         request.experienceCloud(experienceCloud);
     }
 
-    private void createAndSetVisitor(String visitorCookie) {
+    private void createAndSetVisitor(@Nullable String visitorCookie) {
         if (visitor != null) {
             return;
         }

@@ -13,6 +13,8 @@
  */
 package com.adobe.target.delivery.v1.model;
 
+import javax.annotation.Nullable;
+
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -23,30 +25,27 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Object that describes the order details.
- */
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Order {
-    @JsonProperty("id")
+    @JsonProperty("id")@Nullable
     private String id;
 
-    @JsonProperty("total")
+    @JsonProperty("total")@Nullable
     private BigDecimal total;
 
     @JsonProperty("purchasedProductIds")
     private List<String> purchasedProductIds = new ArrayList<>();
 
-    @JsonProperty("time")
+    @JsonProperty("time")@Nullable
     private OffsetDateTime time;
 
-    @JsonProperty("experienceLocalId")
+    @JsonProperty("experienceLocalId")@Nullable
     private Integer experienceLocalId;
 
-    @JsonProperty("duplicate")
+    @JsonProperty("duplicate")@Nullable
     private Boolean duplicate;
 
-    @JsonProperty("outlier")
+    @JsonProperty("outlier")@Nullable
     private Boolean outlier;
 
     public Order id(String id) {
@@ -60,6 +59,7 @@ public class Order {
      * @return id
      **/
 
+    @Nullable
     public String getId() {
         return id;
     }
@@ -80,6 +80,7 @@ public class Order {
      * @return total
      **/
 
+    @Nullable
     public BigDecimal getTotal() {
         return total;
     }
@@ -127,6 +128,7 @@ public class Order {
      * @return time
      **/
 
+    @Nullable
     public OffsetDateTime getTime() {
         return time;
     }
@@ -148,6 +150,7 @@ public class Order {
      * @return experienceLocalId
      **/
 
+    @Nullable
     public Integer getExperienceLocalId() {
         return experienceLocalId;
     }
@@ -167,6 +170,7 @@ public class Order {
      * @return duplicate
      **/
 
+    @Nullable
     public Boolean getDuplicate() {
         return duplicate;
     }
@@ -186,6 +190,7 @@ public class Order {
      * @return outlier
      **/
 
+    @Nullable
     public Boolean getOutlier() {
         return outlier;
     }
@@ -238,7 +243,7 @@ public class Order {
      * Convert the given object to string with each line indented by 4 spaces
      * (except the first line).
      */
-    private String toIndentedString(Object o) {
+    private String toIndentedString(@Nullable Object o) {
         if (o == null) {
             return "null";
         }

@@ -13,22 +13,20 @@
  */
 package com.adobe.target.delivery.v1.model;
 
+import javax.annotation.Nullable;
+
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.Objects;
 
-
-/**
- * The address object. It indicates the current URL and the referring URL.
- */
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Address {
-    @JsonProperty("url")
+    @JsonProperty("url")@Nullable
     private String url;
 
-    @JsonProperty("referringUrl")
+    @JsonProperty("referringUrl")@Nullable
     private String referringUrl;
 
     public Address url(String url) {
@@ -42,6 +40,7 @@ public class Address {
      * @return url
      **/
 
+    @Nullable
     public String getUrl() {
         return url;
     }
@@ -61,6 +60,7 @@ public class Address {
      * @return referringUrl
      **/
 
+    @Nullable
     public String getReferringUrl() {
         return referringUrl;
     }
@@ -103,7 +103,7 @@ public class Address {
      * Convert the given object to string with each line indented by 4 spaces
      * (except the first line).
      */
-    private String toIndentedString(Object o) {
+    private String toIndentedString(@Nullable Object o) {
         if (o == null) {
             return "null";
         }

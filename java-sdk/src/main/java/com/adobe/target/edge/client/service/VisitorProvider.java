@@ -11,6 +11,8 @@
  */
 package com.adobe.target.edge.client.service;
 
+import javax.annotation.Nullable;
+
 import com.adobe.experiencecloud.ecid.visitor.Visitor;
 
 import java.io.UnsupportedEncodingException;
@@ -18,6 +20,7 @@ import java.net.URLEncoder;
 
 public class VisitorProvider {
 
+    @Nullable
     private static VisitorProvider INSTANCE = null;
 
     private final String VISITOR_COOKIE_PREFIX = "AMCV_";
@@ -29,7 +32,7 @@ public class VisitorProvider {
         this.visitorCookieName = VISITOR_COOKIE_PREFIX + URLEncoder.encode(orgId, "UTF-8");
     }
 
-    public Visitor createVisitor(String visitorCookie) {
+    public Visitor createVisitor(@Nullable String visitorCookie) {
         return new Visitor(orgId, visitorCookie);
     }
 

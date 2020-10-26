@@ -13,22 +13,20 @@
  */
 package com.adobe.target.delivery.v1.model;
 
+import javax.annotation.Nullable;
+
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.Objects;
 
-
-/**
- * Geo data. If not specified, and Geo is enabled for the client, it will be resolved via user&#39;s IP.
- */
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Geo {
-    @JsonProperty("latitude")
+    @JsonProperty("latitude")@Nullable
     private Float latitude;
 
-    @JsonProperty("longitude")
+    @JsonProperty("longitude")@Nullable
     private Float longitude;
 
     public Geo latitude(Float latitude) {
@@ -42,6 +40,7 @@ public class Geo {
      * @return latitude
      **/
 
+    @Nullable
     public Float getLatitude() {
         return latitude;
     }
@@ -61,6 +60,7 @@ public class Geo {
      * @return longitude
      **/
 
+    @Nullable
     public Float getLongitude() {
         return longitude;
     }
@@ -103,7 +103,7 @@ public class Geo {
      * Convert the given object to string with each line indented by 4 spaces
      * (except the first line).
      */
-    private String toIndentedString(Object o) {
+    private String toIndentedString(@Nullable Object o) {
         if (o == null) {
             return "null";
         }

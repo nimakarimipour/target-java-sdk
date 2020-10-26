@@ -13,19 +13,17 @@
  */
 package com.adobe.target.delivery.v1.model;
 
+import javax.annotation.Nullable;
+
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.Objects;
 
-
-/**
- * Include this object to send display notifications for the prefetch page load contnet.
- */
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class NotificationPageLoad {
-    @JsonProperty("state")
+    @JsonProperty("state")@Nullable
     private String state;
 
     public NotificationPageLoad state(String state) {
@@ -39,6 +37,7 @@ public class NotificationPageLoad {
      * @return state
      **/
 
+    @Nullable
     public String getState() {
         return state;
     }
@@ -79,7 +78,7 @@ public class NotificationPageLoad {
      * Convert the given object to string with each line indented by 4 spaces
      * (except the first line).
      */
-    private String toIndentedString(Object o) {
+    private String toIndentedString(@Nullable Object o) {
         if (o == null) {
             return "null";
         }

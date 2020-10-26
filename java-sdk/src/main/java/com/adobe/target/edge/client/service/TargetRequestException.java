@@ -11,9 +11,11 @@
  */
 package com.adobe.target.edge.client.service;
 
+import javax.annotation.Nullable;
+
 public class TargetRequestException extends RuntimeException {
 
-    public TargetRequestException(String message, Throwable cause) {
+    public TargetRequestException(@Nullable String message, Throwable cause) {
         super(message, cause);
     }
 

@@ -13,25 +13,23 @@
  */
 package com.adobe.target.delivery.v1.model;
 
+import javax.annotation.Nullable;
+
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.Objects;
 
-
-/**
- * Application identifiers. If specified, should match the with the one from the activity.
- */
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Application {
-    @JsonProperty("id")
+    @JsonProperty("id")@Nullable
     private String id;
 
-    @JsonProperty("name")
+    @JsonProperty("name")@Nullable
     private String name;
 
-    @JsonProperty("version")
+    @JsonProperty("version")@Nullable
     private String version;
 
     public Application id(String id) {
@@ -46,6 +44,7 @@ public class Application {
      * @return id
      **/
 
+    @Nullable
     public String getId() {
         return id;
     }
@@ -66,6 +65,7 @@ public class Application {
      * @return name
      **/
 
+    @Nullable
     public String getName() {
         return name;
     }
@@ -86,6 +86,7 @@ public class Application {
      * @return version
      **/
 
+    @Nullable
     public String getVersion() {
         return version;
     }
@@ -130,7 +131,7 @@ public class Application {
      * Convert the given object to string with each line indented by 4 spaces
      * (except the first line).
      */
-    private String toIndentedString(Object o) {
+    private String toIndentedString(@Nullable Object o) {
         if (o == null) {
             return "null";
         }

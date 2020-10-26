@@ -13,19 +13,17 @@
  */
 package com.adobe.target.delivery.v1.model;
 
+import javax.annotation.Nullable;
+
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.Objects;
 
-
-/**
- * Specifies the at_property via the token field. It can be used to control the scope for the delivery.
- */
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Property {
-    @JsonProperty("token")
+    @JsonProperty("token")@Nullable
     private String token;
 
     public Property token(String token) {
@@ -39,6 +37,7 @@ public class Property {
      * @return token
      **/
 
+    @Nullable
     public String getToken() {
         return token;
     }
@@ -79,7 +78,7 @@ public class Property {
      * Convert the given object to string with each line indented by 4 spaces
      * (except the first line).
      */
-    private String toIndentedString(Object o) {
+    private String toIndentedString(@Nullable Object o) {
         if (o == null) {
             return "null";
         }

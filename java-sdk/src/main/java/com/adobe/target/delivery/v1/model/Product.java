@@ -13,22 +13,20 @@
  */
 package com.adobe.target.delivery.v1.model;
 
+import javax.annotation.Nullable;
+
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.Objects;
 
-
-/**
- * Product
- */
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Product {
-    @JsonProperty("id")
+    @JsonProperty("id")@Nullable
     private String id;
 
-    @JsonProperty("categoryId")
+    @JsonProperty("categoryId")@Nullable
     private String categoryId;
 
     public Product id(String id) {
@@ -42,6 +40,7 @@ public class Product {
      * @return id
      **/
 
+    @Nullable
     public String getId() {
         return id;
     }
@@ -61,6 +60,7 @@ public class Product {
      * @return categoryId
      **/
 
+    @Nullable
     public String getCategoryId() {
         return categoryId;
     }
@@ -103,7 +103,7 @@ public class Product {
      * Convert the given object to string with each line indented by 4 spaces
      * (except the first line).
      */
-    private String toIndentedString(Object o) {
+    private String toIndentedString(@Nullable Object o) {
         if (o == null) {
             return "null";
         }

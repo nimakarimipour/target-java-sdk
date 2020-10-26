@@ -13,21 +13,20 @@
  */
 package com.adobe.target.delivery.v1.model;
 
+import javax.annotation.Nullable;
+
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.*;
 
-/**
- * Mbox response object.
- */
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class MboxResponse {
-    @JsonProperty("index")
+    @JsonProperty("index")@Nullable
     private Integer index;
 
-    @JsonProperty("name")
+    @JsonProperty("name")@Nullable
     private String name;
 
     @JsonProperty("options")
@@ -36,7 +35,7 @@ public class MboxResponse {
     @JsonProperty("metrics")
     private List<Metric> metrics = new ArrayList<>();
 
-    @JsonProperty("analytics")
+    @JsonProperty("analytics")@Nullable
     private AnalyticsResponse analytics = null;
 
     @JsonProperty("trace")
@@ -53,6 +52,7 @@ public class MboxResponse {
      * @return index
      **/
 
+    @Nullable
     public Integer getIndex() {
         return index;
     }
@@ -73,6 +73,7 @@ public class MboxResponse {
      * @return name
      **/
 
+    @Nullable
     public String getName() {
         return name;
     }
@@ -146,6 +147,7 @@ public class MboxResponse {
      * @return analytics
      **/
 
+    @Nullable
     public AnalyticsResponse getAnalytics() {
         return analytics;
     }
@@ -224,7 +226,7 @@ public class MboxResponse {
      * Convert the given object to string with each line indented by 4 spaces
      * (except the first line).
      */
-    private String toIndentedString(Object o) {
+    private String toIndentedString(@Nullable Object o) {
         if (o == null) {
             return "null";
         }

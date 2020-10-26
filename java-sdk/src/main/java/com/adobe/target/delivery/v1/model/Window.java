@@ -13,22 +13,20 @@
  */
 package com.adobe.target.delivery.v1.model;
 
+import javax.annotation.Nullable;
+
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.Objects;
 
-
-/**
- * Window
- */
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Window {
-    @JsonProperty("width")
+    @JsonProperty("width")@Nullable
     private Double width;
 
-    @JsonProperty("height")
+    @JsonProperty("height")@Nullable
     private Double height;
 
     public Window width(Double width) {
@@ -42,6 +40,7 @@ public class Window {
      * @return width
      **/
 
+    @Nullable
     public Double getWidth() {
         return width;
     }
@@ -61,6 +60,7 @@ public class Window {
      * @return height
      **/
 
+    @Nullable
     public Double getHeight() {
         return height;
     }
@@ -103,7 +103,7 @@ public class Window {
      * Convert the given object to string with each line indented by 4 spaces
      * (except the first line).
      */
-    private String toIndentedString(Object o) {
+    private String toIndentedString(@Nullable Object o) {
         if (o == null) {
             return "null";
         }

@@ -13,22 +13,20 @@
  */
 package com.adobe.target.delivery.v1.model;
 
+import javax.annotation.Nullable;
+
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.Objects;
 
-
-/**
- * QAModePreviewIndex
- */
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class QAModePreviewIndex {
-    @JsonProperty("activityIndex")
+    @JsonProperty("activityIndex")@Nullable
     private Integer activityIndex;
 
-    @JsonProperty("experienceIndex")
+    @JsonProperty("experienceIndex")@Nullable
     private Integer experienceIndex;
 
     public QAModePreviewIndex activityIndex(Integer activityIndex) {
@@ -46,6 +44,7 @@ public class QAModePreviewIndex {
      * @return activityIndex
      **/
 
+    @Nullable
     public Integer getActivityIndex() {
         return activityIndex;
     }
@@ -68,6 +67,7 @@ public class QAModePreviewIndex {
      * @return experienceIndex
      **/
 
+    @Nullable
     public Integer getExperienceIndex() {
         return experienceIndex;
     }
@@ -110,7 +110,7 @@ public class QAModePreviewIndex {
      * Convert the given object to string with each line indented by 4 spaces
      * (except the first line).
      */
-    private String toIndentedString(Object o) {
+    private String toIndentedString(@Nullable Object o) {
         if (o == null) {
             return "null";
         }

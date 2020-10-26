@@ -11,13 +11,15 @@
  */
 package com.adobe.target.edge.client.utils;
 
+import javax.annotation.Nullable;
+
 public class StringUtils {
 
-    public static boolean isEmpty(CharSequence cs) {
+    public static boolean isEmpty(@Nullable CharSequence cs) {
         return cs == null || cs.length() == 0;
     }
 
-    public static boolean isNotEmpty(CharSequence cs) {
+    public static boolean isNotEmpty(@Nullable CharSequence cs) {
         return !isEmpty(cs);
     }
 

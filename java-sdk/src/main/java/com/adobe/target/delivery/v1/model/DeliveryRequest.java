@@ -13,6 +13,8 @@
  */
 package com.adobe.target.delivery.v1.model;
 
+import javax.annotation.Nullable;
+
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -21,45 +23,42 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * DeliveryRequest
- */
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class DeliveryRequest {
-    @JsonProperty("requestId")
+    @JsonProperty("requestId")@Nullable
     private String requestId;
 
-    @JsonProperty("impressionId")
+    @JsonProperty("impressionId")@Nullable
     private String impressionId;
 
-    @JsonProperty("id")
+    @JsonProperty("id")@Nullable
     private VisitorId id = null;
 
-    @JsonProperty("environmentId")
+    @JsonProperty("environmentId")@Nullable
     private Long environmentId;
 
-    @JsonProperty("property")
+    @JsonProperty("property")@Nullable
     private Property property = null;
 
-    @JsonProperty("trace")
+    @JsonProperty("trace")@Nullable
     private Trace trace = null;
 
-    @JsonProperty("context")
+    @JsonProperty("context")@Nullable
     private Context context = null;
 
-    @JsonProperty("experienceCloud")
+    @JsonProperty("experienceCloud")@Nullable
     private ExperienceCloud experienceCloud = null;
 
-    @JsonProperty("execute")
+    @JsonProperty("execute")@Nullable
     private ExecuteRequest execute = null;
 
-    @JsonProperty("prefetch")
+    @JsonProperty("prefetch")@Nullable
     private PrefetchRequest prefetch = null;
 
     @JsonProperty("notifications")
     private List<Notification> notifications = new ArrayList<>();
 
-    @JsonProperty("qaMode")
+    @JsonProperty("qaMode")@Nullable
     private QAMode qaMode = null;
 
     public DeliveryRequest requestId(String requestId) {
@@ -74,6 +73,7 @@ public class DeliveryRequest {
      * @return requestId
      **/
 
+    @Nullable
     public String getRequestId() {
         return requestId;
     }
@@ -94,6 +94,7 @@ public class DeliveryRequest {
      * @return impressionId
      **/
 
+    @Nullable
     public String getImpressionId() {
         return impressionId;
     }
@@ -113,6 +114,7 @@ public class DeliveryRequest {
      * @return id
      **/
 
+    @Nullable
     public VisitorId getId() {
         return id;
     }
@@ -132,6 +134,7 @@ public class DeliveryRequest {
      * @return environmentId
      **/
 
+    @Nullable
     public Long getEnvironmentId() {
         return environmentId;
     }
@@ -151,6 +154,7 @@ public class DeliveryRequest {
      * @return property
      **/
 
+    @Nullable
     public Property getProperty() {
         return property;
     }
@@ -170,6 +174,7 @@ public class DeliveryRequest {
      * @return trace
      **/
 
+    @Nullable
     public Trace getTrace() {
         return trace;
     }
@@ -189,6 +194,7 @@ public class DeliveryRequest {
      * @return context
      **/
 
+    @Nullable
     public Context getContext() {
         return context;
     }
@@ -197,7 +203,7 @@ public class DeliveryRequest {
         this.context = context;
     }
 
-    public DeliveryRequest experienceCloud(ExperienceCloud experienceCloud) {
+    public DeliveryRequest experienceCloud(@Nullable ExperienceCloud experienceCloud) {
         this.experienceCloud = experienceCloud;
         return this;
     }
@@ -208,6 +214,7 @@ public class DeliveryRequest {
      * @return experienceCloud
      **/
 
+    @Nullable
     public ExperienceCloud getExperienceCloud() {
         return experienceCloud;
     }
@@ -227,6 +234,7 @@ public class DeliveryRequest {
      * @return execute
      **/
 
+    @Nullable
     public ExecuteRequest getExecute() {
         return execute;
     }
@@ -246,6 +254,7 @@ public class DeliveryRequest {
      * @return prefetch
      **/
 
+    @Nullable
     public PrefetchRequest getPrefetch() {
         return prefetch;
     }
@@ -292,6 +301,7 @@ public class DeliveryRequest {
      * @return qaMode
      **/
 
+    @Nullable
     public QAMode getQaMode() {
         return qaMode;
     }
@@ -355,7 +365,7 @@ public class DeliveryRequest {
      * Convert the given object to string with each line indented by 4 spaces
      * (except the first line).
      */
-    private String toIndentedString(Object o) {
+    private String toIndentedString(@Nullable Object o) {
         if (o == null) {
             return "null";
         }

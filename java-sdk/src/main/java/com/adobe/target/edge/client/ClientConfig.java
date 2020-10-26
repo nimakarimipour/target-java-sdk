@@ -11,6 +11,8 @@
  */
 package com.adobe.target.edge.client;
 
+import javax.annotation.Nullable;
+
 import org.apache.http.HttpRequestInterceptor;
 
 import java.util.Objects;
@@ -19,11 +21,22 @@ import static com.adobe.target.edge.client.utils.StringUtils.isNotEmpty;
 
 public class ClientConfig {
 
+    @Nullable
     private String client;
+
+    @Nullable
     private String organizationId;
+
+    @Nullable
     private String protocol;
+
+    @Nullable
     private String defaultUrl;
+
+    @Nullable
     private String clusterUrlPrefix;
+
+    @Nullable
     private String clusterUrlSuffix;
     private int socketTimeout;
     private int connectTimeout;
@@ -32,13 +45,19 @@ public class ClientConfig {
     private boolean enableRetries;
     private boolean logRequests;
     private boolean logRequestStatus;
+
+    @Nullable
     private HttpRequestInterceptor requestInterceptor;
+
+    @Nullable
     private ClientProxyConfig proxyConfig;
 
+    @Nullable
     public String getClient() {
         return client;
     }
 
+    @Nullable
     public String getOrganizationId() {
         return organizationId;
     }
@@ -71,10 +90,12 @@ public class ClientConfig {
         return logRequestStatus;
     }
 
+    @Nullable
     public HttpRequestInterceptor getRequestInterceptor() {
         return requestInterceptor;
     }
 
+    @Nullable
     public String getUrl(String locationHint) {
         if (isNotEmpty(locationHint)) {
             return clusterUrlPrefix + locationHint + clusterUrlSuffix;
@@ -82,6 +103,7 @@ public class ClientConfig {
         return defaultUrl;
     }
     
+    @Nullable
     public ClientProxyConfig getProxyConfig() {
     	return proxyConfig;
     }
@@ -97,7 +119,11 @@ public class ClientConfig {
     public static final class ClientConfigBuilder {
         private static final String CLUSTER_PREFIX = "mboxedge";
         private static final String DELIVERY_PATH_SUFFIX = "/rest/v1/delivery";
+
+        @Nullable
         private String client;
+
+        @Nullable
         private String organizationId;
         private String serverDomain = "tt.omtrdc.net";
         private boolean secure = true;
@@ -108,7 +134,11 @@ public class ClientConfig {
         private boolean enableRetries = true;
         private boolean logRequests = false;
         private boolean logRequestStatus = false;
+
+        @Nullable
         private HttpRequestInterceptor requestInterceptor;
+
+        @Nullable
         private ClientProxyConfig proxyConfig;
 
         private ClientConfigBuilder() {

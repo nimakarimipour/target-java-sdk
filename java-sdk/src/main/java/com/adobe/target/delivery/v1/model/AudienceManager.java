@@ -13,22 +13,20 @@
  */
 package com.adobe.target.delivery.v1.model;
 
+import javax.annotation.Nullable;
+
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.Objects;
 
-
-/**
- * Audience Manager Integration (AAM).
- */
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class AudienceManager {
-    @JsonProperty("locationHint")
+    @JsonProperty("locationHint")@Nullable
     private Integer locationHint;
 
-    @JsonProperty("blob")
+    @JsonProperty("blob")@Nullable
     private String blob;
 
     public AudienceManager locationHint(Integer locationHint) {
@@ -43,6 +41,7 @@ public class AudienceManager {
      * @return locationHint
      **/
 
+    @Nullable
     public Integer getLocationHint() {
         return locationHint;
     }
@@ -62,6 +61,7 @@ public class AudienceManager {
      * @return blob
      **/
 
+    @Nullable
     public String getBlob() {
         return blob;
     }
@@ -104,7 +104,7 @@ public class AudienceManager {
      * Convert the given object to string with each line indented by 4 spaces
      * (except the first line).
      */
-    private String toIndentedString(Object o) {
+    private String toIndentedString(@Nullable Object o) {
         if (o == null) {
             return "null";
         }

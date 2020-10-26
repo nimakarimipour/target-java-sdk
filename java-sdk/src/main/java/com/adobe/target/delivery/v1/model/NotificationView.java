@@ -13,25 +13,23 @@
  */
 package com.adobe.target.delivery.v1.model;
 
+import javax.annotation.Nullable;
+
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.Objects;
 
-
-/**
- * Notification for the displayed view.
- */
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class NotificationView {
-    @JsonProperty("name")
+    @JsonProperty("name")@Nullable
     private String name;
 
-    @JsonProperty("key")
+    @JsonProperty("key")@Nullable
     private String key;
 
-    @JsonProperty("state")
+    @JsonProperty("state")@Nullable
     private String state;
 
     public NotificationView name(String name) {
@@ -46,6 +44,7 @@ public class NotificationView {
      * @return name
      **/
 
+    @Nullable
     public String getName() {
         return name;
     }
@@ -66,6 +65,7 @@ public class NotificationView {
      * @return key
      **/
 
+    @Nullable
     public String getKey() {
         return key;
     }
@@ -85,6 +85,7 @@ public class NotificationView {
      * @return state
      **/
 
+    @Nullable
     public String getState() {
         return state;
     }
@@ -129,7 +130,7 @@ public class NotificationView {
      * Convert the given object to string with each line indented by 4 spaces
      * (except the first line).
      */
-    private String toIndentedString(Object o) {
+    private String toIndentedString(@Nullable Object o) {
         if (o == null) {
             return "null";
         }

@@ -13,6 +13,8 @@
  */
 package com.adobe.target.delivery.v1.model;
 
+import javax.annotation.Nullable;
+
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -21,18 +23,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Use this object to prefetch the content for &#x60;views&#x60; and/or &#x60;pageLoad&#x60; and/or &#x60;
- * mboxes&#x60;.   * &#x60;views&#x60; - the request to prefetch selectors grouped per view.   * &#x60;pageLoad&#x60;
- * - the request to prefetch selectors not assigned to any view.   * &#x60;mboxes&#x60; - the request to prefetch
- * mbox content.
- */
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class PrefetchRequest {
     @JsonProperty("views")
     private List<ViewRequest> views = new ArrayList<>();
 
-    @JsonProperty("pageLoad")
+    @JsonProperty("pageLoad")@Nullable
     private RequestDetails pageLoad = null;
 
     @JsonProperty("mboxes")
@@ -77,6 +73,7 @@ public class PrefetchRequest {
      * @return pageLoad
      **/
 
+    @Nullable
     public RequestDetails getPageLoad() {
         return pageLoad;
     }
@@ -148,7 +145,7 @@ public class PrefetchRequest {
      * Convert the given object to string with each line indented by 4 spaces
      * (except the first line).
      */
-    private String toIndentedString(Object o) {
+    private String toIndentedString(@Nullable Object o) {
         if (o == null) {
             return "null";
         }

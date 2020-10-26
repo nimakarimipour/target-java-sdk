@@ -11,13 +11,20 @@
  */
 package com.adobe.target.edge.client.model;
 
+import javax.annotation.Nullable;
+
 import com.adobe.experiencecloud.ecid.visitor.Visitor;
 import com.adobe.target.delivery.v1.model.DeliveryRequest;
 
 public class TargetDeliveryRequest {
 
+    @Nullable
     private String sessionId;
+
+    @Nullable
     private String locationHint;
+
+    @Nullable
     private Visitor visitor;
     private DeliveryRequest deliveryRequest = new DeliveryRequest();
 
@@ -29,21 +36,22 @@ public class TargetDeliveryRequest {
         return targetDeliveryRequest;
     }
 
-    TargetDeliveryRequest setVisitor(Visitor visitor) {
+    TargetDeliveryRequest setVisitor(@Nullable Visitor visitor) {
         this.visitor = visitor;
         return this;
     }
 
-    TargetDeliveryRequest setSessionId(String sessionId) {
+    TargetDeliveryRequest setSessionId(@Nullable String sessionId) {
         this.sessionId = sessionId;
         return this;
     }
 
-    TargetDeliveryRequest setLocationHint(String locationHint) {
+    TargetDeliveryRequest setLocationHint(@Nullable String locationHint) {
         this.locationHint = locationHint;
         return this;
     }
 
+    @Nullable
     public String getSessionId() {
         return sessionId;
     }
@@ -52,10 +60,12 @@ public class TargetDeliveryRequest {
         return deliveryRequest;
     }
 
+    @Nullable
     public Visitor getVisitor() {
         return visitor;
     }
 
+    @Nullable
     public String getLocationHint() {
         return locationHint;
     }

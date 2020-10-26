@@ -1,9 +1,15 @@
 package com.adobe.target.edge.client;
 
+import javax.annotation.Nullable;
+
 public class ClientProxyConfig {
 	private String host;
 	private int port;
+
+	@Nullable
 	private String username;
+
+	@Nullable
 	private String password;
 	private boolean authProxy = false;
 	
@@ -28,10 +34,12 @@ public class ClientProxyConfig {
 		return port;
 	}
 
+	@Nullable
 	public String getUsername() {
 		return username;
 	}
 
+	@Nullable
 	public String getPassword() {
 		return password;
 	}

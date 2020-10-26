@@ -13,6 +13,8 @@
  */
 package com.adobe.target.delivery.v1.model;
 
+import javax.annotation.Nullable;
+
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -21,17 +23,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Use this object to enable the QA mode in the request. Use the QA mode to test the look and feel of your site or
- * application for various activities in isolation or together, with the possibilty to match or not match specified
- * audiences, select a specific experience, count the impressions/visits for the reporting or not.
- */
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class QAMode {
-    @JsonProperty("token")
+    @JsonProperty("token")@Nullable
     private String token;
 
-    @JsonProperty("listedActivitiesOnly")
+    @JsonProperty("listedActivitiesOnly")@Nullable
     private Boolean listedActivitiesOnly;
 
     @JsonProperty("evaluateAsTrueAudienceIds")
@@ -56,6 +53,7 @@ public class QAMode {
      * @return token
      **/
 
+    @Nullable
     public String getToken() {
         return token;
     }
@@ -76,6 +74,7 @@ public class QAMode {
      * @return listedActivitiesOnly
      **/
 
+    @Nullable
     public Boolean getListedActivitiesOnly() {
         return listedActivitiesOnly;
     }
@@ -206,7 +205,7 @@ public class QAMode {
      * Convert the given object to string with each line indented by 4 spaces
      * (except the first line).
      */
-    private String toIndentedString(Object o) {
+    private String toIndentedString(@Nullable Object o) {
         if (o == null) {
             return "null";
         }

@@ -13,31 +13,29 @@
  */
 package com.adobe.target.delivery.v1.model;
 
+import javax.annotation.Nullable;
+
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.Objects;
 
-
-/**
- * Screen
- */
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Screen {
-    @JsonProperty("width")
+    @JsonProperty("width")@Nullable
     private Double width;
 
-    @JsonProperty("height")
+    @JsonProperty("height")@Nullable
     private Double height;
 
-    @JsonProperty("colorDepth")
+    @JsonProperty("colorDepth")@Nullable
     private Double colorDepth;
 
-    @JsonProperty("pixelRatio")
+    @JsonProperty("pixelRatio")@Nullable
     private Double pixelRatio;
 
-    @JsonProperty("orientation")
+    @JsonProperty("orientation")@Nullable
     private ScreenOrientationType orientation = null;
 
     public Screen width(Double width) {
@@ -51,6 +49,7 @@ public class Screen {
      * @return width
      **/
 
+    @Nullable
     public Double getWidth() {
         return width;
     }
@@ -70,6 +69,7 @@ public class Screen {
      * @return height
      **/
 
+    @Nullable
     public Double getHeight() {
         return height;
     }
@@ -89,6 +89,7 @@ public class Screen {
      * @return colorDepth
      **/
 
+    @Nullable
     public Double getColorDepth() {
         return colorDepth;
     }
@@ -108,6 +109,7 @@ public class Screen {
      * @return pixelRatio
      **/
 
+    @Nullable
     public Double getPixelRatio() {
         return pixelRatio;
     }
@@ -127,6 +129,7 @@ public class Screen {
      * @return orientation
      **/
 
+    @Nullable
     public ScreenOrientationType getOrientation() {
         return orientation;
     }
@@ -175,7 +178,7 @@ public class Screen {
      * Convert the given object to string with each line indented by 4 spaces
      * (except the first line).
      */
-    private String toIndentedString(Object o) {
+    private String toIndentedString(@Nullable Object o) {
         if (o == null) {
             return "null";
         }

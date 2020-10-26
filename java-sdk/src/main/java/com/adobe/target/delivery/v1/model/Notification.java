@@ -13,6 +13,8 @@
  */
 package com.adobe.target.delivery.v1.model;
 
+import javax.annotation.Nullable;
+
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -21,38 +23,30 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Notification object is used to sent notificaitons regarding what prefetched content was displayed (for views,
- * pageLoad or regional mboxes), which views, pages and mboxes were visited (triggered), and which elements were
- * clicked. Notification request detail will be validated and in case there are validation errors with any token or
- * timestamp the entire request will be invalidated, so there are no cases of inconsistent data, caused by a
- * partially processed notification. that may happen with a partially processed notification. This is different from
- * the approach in the batch mbox v2 API. Mboxes and views are mutually exclusive.
- */
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Notification extends RequestDetails {
-    @JsonProperty("id")
+    @JsonProperty("id")@Nullable
     private String id;
 
-    @JsonProperty("impressionId")
+    @JsonProperty("impressionId")@Nullable
     private String impressionId;
 
-    @JsonProperty("type")
+    @JsonProperty("type")@Nullable
     private MetricType type = null;
 
-    @JsonProperty("timestamp")
+    @JsonProperty("timestamp")@Nullable
     private Long timestamp;
 
     @JsonProperty("tokens")
     private List<String> tokens = new ArrayList<>();
 
-    @JsonProperty("mbox")
+    @JsonProperty("mbox")@Nullable
     private NotificationMbox mbox = null;
 
-    @JsonProperty("view")
+    @JsonProperty("view")@Nullable
     private NotificationView view = null;
 
-    @JsonProperty("pageLoad")
+    @JsonProperty("pageLoad")@Nullable
     private NotificationPageLoad pageLoad = null;
 
     public Notification id(String id) {
@@ -66,6 +60,7 @@ public class Notification extends RequestDetails {
      * @return id
      **/
 
+    @Nullable
     public String getId() {
         return id;
     }
@@ -87,6 +82,7 @@ public class Notification extends RequestDetails {
      * @return impressionId
      **/
 
+    @Nullable
     public String getImpressionId() {
         return impressionId;
     }
@@ -106,6 +102,7 @@ public class Notification extends RequestDetails {
      * @return type
      **/
 
+    @Nullable
     public MetricType getType() {
         return type;
     }
@@ -125,6 +122,7 @@ public class Notification extends RequestDetails {
      * @return timestamp
      **/
 
+    @Nullable
     public Long getTimestamp() {
         return timestamp;
     }
@@ -171,6 +169,7 @@ public class Notification extends RequestDetails {
      * @return mbox
      **/
 
+    @Nullable
     public NotificationMbox getMbox() {
         return mbox;
     }
@@ -190,6 +189,7 @@ public class Notification extends RequestDetails {
      * @return view
      **/
 
+    @Nullable
     public NotificationView getView() {
         return view;
     }
@@ -209,6 +209,7 @@ public class Notification extends RequestDetails {
      * @return pageLoad
      **/
 
+    @Nullable
     public NotificationPageLoad getPageLoad() {
         return pageLoad;
     }
@@ -265,7 +266,7 @@ public class Notification extends RequestDetails {
      * Convert the given object to string with each line indented by 4 spaces
      * (except the first line).
      */
-    private String toIndentedString(Object o) {
+    private String toIndentedString(@Nullable Object o) {
         if (o == null) {
             return "null";
         }

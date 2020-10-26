@@ -13,6 +13,8 @@
  */
 package com.adobe.target.delivery.v1.model;
 
+import javax.annotation.Nullable;
+
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -21,26 +23,21 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Object that contains the identifiers for the visitor. If no id is provided in the first request, Target will
- * generate a VisitorId with a tntId. The code that runs on the client side is then responsible for passing this
- * tntId value on all subsequent calls. Validation   * Either tntId, thirdPartyId or maketingCloudVisistorId required.
- */
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class VisitorId {
-    @JsonProperty("tntId")
+    @JsonProperty("tntId")@Nullable
     private String tntId;
 
-    @JsonProperty("thirdPartyId")
+    @JsonProperty("thirdPartyId")@Nullable
     private String thirdPartyId;
 
-    @JsonProperty("marketingCloudVisitorId")
+    @JsonProperty("marketingCloudVisitorId")@Nullable
     private String marketingCloudVisitorId;
 
     @JsonProperty("customerIds")
     private List<CustomerId> customerIds = new ArrayList<>();
 
-    public VisitorId tntId(String tntId) {
+    public VisitorId tntId(@Nullable String tntId) {
         this.tntId = tntId;
         return this;
     }
@@ -56,6 +53,7 @@ public class VisitorId {
      * @return tntId
      **/
 
+    @Nullable
     public String getTntId() {
         return tntId;
     }
@@ -64,7 +62,7 @@ public class VisitorId {
         this.tntId = tntId;
     }
 
-    public VisitorId thirdPartyId(String thirdPartyId) {
+    public VisitorId thirdPartyId(@Nullable String thirdPartyId) {
         this.thirdPartyId = thirdPartyId;
         return this;
     }
@@ -75,6 +73,7 @@ public class VisitorId {
      * @return thirdPartyId
      **/
 
+    @Nullable
     public String getThirdPartyId() {
         return thirdPartyId;
     }
@@ -83,7 +82,7 @@ public class VisitorId {
         this.thirdPartyId = thirdPartyId;
     }
 
-    public VisitorId marketingCloudVisitorId(String marketingCloudVisitorId) {
+    public VisitorId marketingCloudVisitorId(@Nullable String marketingCloudVisitorId) {
         this.marketingCloudVisitorId = marketingCloudVisitorId;
         return this;
     }
@@ -94,6 +93,7 @@ public class VisitorId {
      * @return marketingCloudVisitorId
      **/
 
+    @Nullable
     public String getMarketingCloudVisitorId() {
         return marketingCloudVisitorId;
     }
@@ -102,7 +102,7 @@ public class VisitorId {
         this.marketingCloudVisitorId = marketingCloudVisitorId;
     }
 
-    public VisitorId customerIds(List<CustomerId> customerIds) {
+    public VisitorId customerIds(@Nullable List<CustomerId> customerIds) {
         this.customerIds = customerIds;
         return this;
     }
@@ -167,7 +167,7 @@ public class VisitorId {
      * Convert the given object to string with each line indented by 4 spaces
      * (except the first line).
      */
-    private String toIndentedString(Object o) {
+    private String toIndentedString(@Nullable Object o) {
         if (o == null) {
             return "null";
         }

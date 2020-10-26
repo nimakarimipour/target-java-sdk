@@ -13,25 +13,23 @@
  */
 package com.adobe.target.delivery.v1.model;
 
+import javax.annotation.Nullable;
+
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.Objects;
 
-
-/**
- * Metric
- */
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Metric {
-    @JsonProperty("type")
+    @JsonProperty("type")@Nullable
     private MetricType type = null;
 
-    @JsonProperty("selector")
+    @JsonProperty("selector")@Nullable
     private String selector;
 
-    @JsonProperty("eventToken")
+    @JsonProperty("eventToken")@Nullable
     private String eventToken;
 
     public Metric type(MetricType type) {
@@ -45,6 +43,7 @@ public class Metric {
      * @return type
      **/
 
+    @Nullable
     public MetricType getType() {
         return type;
     }
@@ -64,6 +63,7 @@ public class Metric {
      * @return selector
      **/
 
+    @Nullable
     public String getSelector() {
         return selector;
     }
@@ -83,6 +83,7 @@ public class Metric {
      * @return eventToken
      **/
 
+    @Nullable
     public String getEventToken() {
         return eventToken;
     }
@@ -127,7 +128,7 @@ public class Metric {
      * Convert the given object to string with each line indented by 4 spaces
      * (except the first line).
      */
-    private String toIndentedString(Object o) {
+    private String toIndentedString(@Nullable Object o) {
         if (o == null) {
             return "null";
         }

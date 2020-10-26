@@ -13,37 +13,35 @@
  */
 package com.adobe.target.delivery.v1.model;
 
+import javax.annotation.Nullable;
+
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.Objects;
 
-
-/**
- * Delivery response. Returned content will be based upon the request and client&#39;s active activities.
- */
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class DeliveryResponse {
-    @JsonProperty("status")
+    @JsonProperty("status")@Nullable
     private Integer status;
 
-    @JsonProperty("requestId")
+    @JsonProperty("requestId")@Nullable
     private String requestId;
 
-    @JsonProperty("id")
+    @JsonProperty("id")@Nullable
     private VisitorId id = null;
 
-    @JsonProperty("client")
+    @JsonProperty("client")@Nullable
     private String client;
 
-    @JsonProperty("edgeHost")
+    @JsonProperty("edgeHost")@Nullable
     private String edgeHost;
 
-    @JsonProperty("execute")
+    @JsonProperty("execute")@Nullable
     private ExecuteResponse execute = null;
 
-    @JsonProperty("prefetch")
+    @JsonProperty("prefetch")@Nullable
     private PrefetchResponse prefetch = null;
 
     public DeliveryResponse status(Integer status) {
@@ -58,6 +56,7 @@ public class DeliveryResponse {
      * @return status
      **/
 
+    @Nullable
     public Integer getStatus() {
         return status;
     }
@@ -78,6 +77,7 @@ public class DeliveryResponse {
      * @return requestId
      **/
 
+    @Nullable
     public String getRequestId() {
         return requestId;
     }
@@ -97,6 +97,7 @@ public class DeliveryResponse {
      * @return id
      **/
 
+    @Nullable
     public VisitorId getId() {
         return id;
     }
@@ -116,6 +117,7 @@ public class DeliveryResponse {
      * @return client
      **/
 
+    @Nullable
     public String getClient() {
         return client;
     }
@@ -135,6 +137,7 @@ public class DeliveryResponse {
      * @return edgeHost
      **/
 
+    @Nullable
     public String getEdgeHost() {
         return edgeHost;
     }
@@ -154,6 +157,7 @@ public class DeliveryResponse {
      * @return execute
      **/
 
+    @Nullable
     public ExecuteResponse getExecute() {
         return execute;
     }
@@ -173,6 +177,7 @@ public class DeliveryResponse {
      * @return prefetch
      **/
 
+    @Nullable
     public PrefetchResponse getPrefetch() {
         return prefetch;
     }
@@ -225,7 +230,7 @@ public class DeliveryResponse {
      * Convert the given object to string with each line indented by 4 spaces
      * (except the first line).
      */
-    private String toIndentedString(Object o) {
+    private String toIndentedString(@Nullable Object o) {
         if (o == null) {
             return "null";
         }

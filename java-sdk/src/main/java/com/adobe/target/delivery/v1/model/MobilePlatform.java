@@ -23,28 +23,26 @@
  */
 package com.adobe.target.delivery.v1.model;
 
+import javax.annotation.Nullable;
+
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.Objects;
 
-
-/**
- * Mobile Platform should be specified when the channel is Mobile
- */
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class MobilePlatform {
-    @JsonProperty("deviceName")
+    @JsonProperty("deviceName")@Nullable
     private String deviceName;
 
-    @JsonProperty("deviceType")
+    @JsonProperty("deviceType")@Nullable
     private DeviceType deviceType = null;
 
-    @JsonProperty("platformType")
+    @JsonProperty("platformType")@Nullable
     private MobilePlatformType platformType = null;
 
-    @JsonProperty("version")
+    @JsonProperty("version")@Nullable
     private String version;
 
     public MobilePlatform deviceName(String deviceName) {
@@ -59,6 +57,7 @@ public class MobilePlatform {
      * @return deviceName
      **/
 
+    @Nullable
     public String getDeviceName() {
         return deviceName;
     }
@@ -78,6 +77,7 @@ public class MobilePlatform {
      * @return deviceType
      **/
 
+    @Nullable
     public DeviceType getDeviceType() {
         return deviceType;
     }
@@ -97,6 +97,7 @@ public class MobilePlatform {
      * @return platformType
      **/
 
+    @Nullable
     public MobilePlatformType getPlatformType() {
         return platformType;
     }
@@ -117,6 +118,7 @@ public class MobilePlatform {
      * @return version
      **/
 
+    @Nullable
     public String getVersion() {
         return version;
     }
@@ -163,7 +165,7 @@ public class MobilePlatform {
      * Convert the given object to string with each line indented by 4 spaces
      * (except the first line).
      */
-    private String toIndentedString(Object o) {
+    private String toIndentedString(@Nullable Object o) {
         if (o == null) {
             return "null";
         }

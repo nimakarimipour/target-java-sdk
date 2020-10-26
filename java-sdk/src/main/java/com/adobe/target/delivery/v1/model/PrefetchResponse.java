@@ -13,6 +13,8 @@
  */
 package com.adobe.target.delivery.v1.model;
 
+import javax.annotation.Nullable;
+
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -21,15 +23,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * The object that will return the prefetched content based on the request, active activites etc
- */
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class PrefetchResponse {
     @JsonProperty("views")
     private List<View> views = new ArrayList<>();
 
-    @JsonProperty("pageLoad")
+    @JsonProperty("pageLoad")@Nullable
     private PageLoadResponse pageLoad = null;
 
     @JsonProperty("mboxes")
@@ -76,6 +75,7 @@ public class PrefetchResponse {
      * @return pageLoad
      **/
 
+    @Nullable
     public PageLoadResponse getPageLoad() {
         return pageLoad;
     }
@@ -182,7 +182,7 @@ public class PrefetchResponse {
      * Convert the given object to string with each line indented by 4 spaces
      * (except the first line).
      */
-    private String toIndentedString(Object o) {
+    private String toIndentedString(@Nullable Object o) {
         if (o == null) {
             return "null";
         }
